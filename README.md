@@ -1,12 +1,11 @@
-# Discord Music Bot with Character AI
+# Discord Music Bot
 
-A feature-rich Discord bot that plays music and interacts using Character AI.
+A feature-rich Discord bot that plays music
 
 ## Features
 
-- Music playback from YouTube and other sources
+- Music playback from YouTube
 - Intelligent song recommendations
-- Character AI-powered conversations
 - Multi-server support
 - Responsive command handling
 - Thread-safe queue management
@@ -22,6 +21,6 @@ A feature-rich Discord bot that plays music and interacts using Character AI.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/tomobot.git
+   git clone https://github.com/railohail/tomobot.git
    cd tomobot
    ```
