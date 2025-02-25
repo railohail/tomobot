@@ -1,0 +1,4 @@
+nextcord==2.0.0a10
+mafic==2.5.1
+# characterai==0.8.0
+python-dotenv==1.0.0
