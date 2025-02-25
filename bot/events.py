@@ -1,136 +1,166 @@
-"""
-Event handlers for the Discord bot.
-
-This module contains handlers for various Discord events such as guild joins,
-errors, and other non-command interactions.
-"""
-
-import logging
-import traceback
 import nextcord
-from nextcord.ext import commands
+import mafic
+import logging
+from utils import format_duration
+from collections import Counter, deque
+import random
+import config
 
-logger = logging.getLogger('music_bot')
+async def on_track_start(bot, event: mafic.TrackStartEvent):
+    """Handle track start events."""
+    player = event.player
+    track = event.track
+    guild_id = player.guild.id
+    bot.current_song[guild_id] = track
+    
+    # Record play history
+    if guild_id not in bot.play_history:
+        bot.play_history[guild_id] = []
+    bot.play_history[guild_id].append(track.author)
+    
+    # Keep only the last 100 played songs
+    bot.play_history[guild_id] = bot.play_history[guild_id][-100:]
+    
+    if guild_id in bot.text_channels:
+        embed = nextcord.Embed(title="Now Playing", color=nextcord.Color.green())
+        embed.add_field(name="Title", value=track.title, inline=False)
+        embed.add_field(name="Author", value=track.author, inline=False)
+        await bot.text_channels[guild_id].send(embed=embed)
+    
+    # Check if recommendations are needed
+    await check_and_recommend(bot, player, guild_id)
 
-class EventHandlers:
-    """Handlers for various bot events."""
+async def on_track_end(bot, event: mafic.TrackEndEvent):
+    """Handle track end events."""
+    player = event.player
+    guild_id = player.guild.id
     
-    def __init__(self, bot):
-        self.bot = bot
-        
-        # Register event handlers
-        self.register_events()
+    # Check if this is a skip operation
+    is_skip = False
+    if hasattr(bot, 'skip_operations'):
+        is_skip = bot.skip_operations.get(guild_id, False)
+        # Reset the skip flag
+        if is_skip:
+            bot.skip_operations[guild_id] = False
     
-    def register_events(self):
-        """Register all event handlers with the bot."""
-        self.bot.event(self.on_command_error)
-        self.bot.event(self.on_guild_join)
-        self.bot.event(self.on_guild_remove)
-        self.bot.event(self.on_voice_state_update)
+    # Check if we're in replay mode and should replay the current song
+    # Only replay if replay mode is on and this is not a skip operation
+    if bot.replay_mode.get(guild_id, False) and guild_id in bot.current_song and not is_skip:
+        # Store the current song before it gets popped
+        current_song = bot.current_song[guild_id]
+        
+        # Play the same song again
+        try:
+            await player.play(current_song)
+            if guild_id in bot.text_channels:
+                embed = nextcord.Embed(title="Replaying", color=nextcord.Color.blue())
+                embed.add_field(name="Title", value=current_song.title, inline=False)
+                embed.add_field(name="Author", value=current_song.author, inline=False)
+                await bot.text_channels[guild_id].send(embed=embed)
+            return  # Skip the rest of the function
+        except Exception as e:
+            logging.error(f"Error replaying track: {e}")
+            # If replay fails, continue with normal flow
     
-    async def on_command_error(self, ctx, error):
-        """Handle command errors."""
-        if isinstance(error, commands.CommandNotFound):
-            return
-        
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(f"Missing required argument: {error.param.name}")
-            return
-        
-        if isinstance(error, commands.BadArgument):
-            await ctx.send(f"Bad argument: {error}")
-            return
-        
-        if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Command on cooldown. Try again in {error.retry_after:.2f} seconds.")
-            return
-        
-        if isinstance(error, commands.MissingPermissions):
-            await ctx.send("You don't have permission to use this command.")
-            return
-        
-        if isinstance(error, commands.BotMissingPermissions):
-            await ctx.send(f"I'm missing permissions to execute this command: {error.missing_perms}")
-            return
-        
-        # For all other errors, log them and notify the user
-        error_trace = ''.join(traceback.format_exception(type(error), error, error.__traceback__))
-        logger.error(f"Command error in {ctx.command}:\n{error_trace}")
-        
-        await ctx.send("An error occurred while processing your command. The error has been logged.")
+    # Normal flow (if not in replay mode or replay failed)
+    bot.current_song.pop(guild_id, None)  # Clear the current song
     
-    async def on_guild_join(self, guild):
-        """Handle when the bot joins a new guild."""
-        logger.info(f"Joined new guild: {guild.name} (ID: {guild.id})")
+    # Manage recommendation history
+    manage_recommendation_history(bot, guild_id)
+    
+    # Check if there are more tracks in the queue
+    if guild_id in bot.music_queues and bot.music_queues[guild_id]:
+        await play_next(bot, player)
+    else:
+        if guild_id in bot.text_channels:
+            embed = nextcord.Embed(title="Playback Finished", color=nextcord.Color.blue())
+            embed.add_field(name="Message", value="Queue is empty. Playback finished.", inline=False)
+            await bot.text_channels[guild_id].send(embed=embed)
+        await player.disconnect()
+
+async def play_next(bot, player: mafic.Player):
+    """Play the next track in the queue."""
+    guild_id = player.guild.id
+    if not player.connected:
+        if guild_id in bot.music_queues:
+            bot.music_queues[guild_id].clear()
+        return
+
+    if guild_id in bot.music_queues and bot.music_queues[guild_id]:
+        next_track = bot.music_queues[guild_id].popleft()
+        try:
+            await player.play(next_track)
+            bot.current_song[guild_id] = next_track
+            logging.info(f"Started playing: {next_track.title}")
+        except Exception as e:
+            logging.error(f"Error playing track: {e}")
+            if guild_id in bot.text_channels:
+                embed = nextcord.Embed(title="Playback Error", color=nextcord.Color.red())
+                embed.add_field(name="Error", value=f"Error playing track: {e}", inline=False)
+                await bot.text_channels[guild_id].send(embed=embed)
+            await play_next(bot, player)
+    else:
+        if guild_id in bot.text_channels:
+            embed = nextcord.Embed(title="Playback Finished", color=nextcord.Color.blue())
+            embed.add_field(name="Message", value="Queue is empty. Playback finished.", inline=False)
+            await bot.text_channels[guild_id].send(embed=embed)
+        await player.disconnect()
+    
+    # Check for recommendations after playing a track
+    await check_and_recommend(bot, player, guild_id)
+
+async def check_and_recommend(bot, player: mafic.Player, guild_id: int):
+    """Check if recommendations are needed and add them to the queue."""
+    if (bot.recommendation_enabled.get(guild_id, False) and 
+        len(bot.music_queues[guild_id]) <= 1 and 
+        guild_id in bot.play_history and 
+        bot.play_history[guild_id]):
         
-        # Try to find a suitable channel to send a welcome message
-        target_channel = None
-        for channel in guild.text_channels:
-            if channel.permissions_for(guild.me).send_messages:
-                target_channel = channel
+        # Initialize recommendation history for the guild if it doesn't exist
+        if guild_id not in bot.recommendation_history:
+            bot.recommendation_history[guild_id] = deque(maxlen=bot.max_recommendation_history)
+        
+        # Get the most common authors from play history
+        author_counts = Counter(bot.play_history[guild_id])
+        common_authors = [author for author, _ in author_counts.most_common()]
+        
+        # Randomly select up to 10 authors (or all if less than 10)
+        num_authors = min(10, len(common_authors))
+        selected_authors = random.sample(common_authors, num_authors)
+        
+        recommended_tracks = 0
+        added_tracks = set()  # To keep track of added tracks and avoid duplicates
+        
+        for author in selected_authors:
+            if recommended_tracks >= 10:
                 break
-        
-        if target_channel:
-            embed = nextcord.Embed(
-                title="Thanks for adding me!",
-                description="I'm a music bot with character AI integration.",
-                color=nextcord.Color.blue()
-            )
-            embed.add_field(
-                name="Getting Started",
-                value="Use `/play` to start playing music, and mention me for chatting!",
-                inline=False
-            )
-            embed.add_field(
-                name="Need Help?",
-                value="Use `/help` to see all available commands.",
-                inline=False
-            )
-            await target_channel.send(embed=embed)
-    
-    async def on_guild_remove(self, guild):
-        """Handle when the bot is removed from a guild."""
-        logger.info(f"Left guild: {guild.name} (ID: {guild.id})")
-        
-        # Clean up any stored data for this guild
-        guild_id = guild.id
-        
-        # Clean up music queue data
-        if hasattr(self.bot, 'music_queue'):
-            if guild_id in self.bot.music_queue.queues:
-                del self.bot.music_queue.queues[guild_id]
-            if guild_id in self.bot.music_queue.locks:
-                del self.bot.music_queue.locks[guild_id]
-            if guild_id in self.bot.music_queue.current_songs:
-                del self.bot.music_queue.current_songs[guild_id]
-            if guild_id in self.bot.music_queue.play_history:
-                del self.bot.music_queue.play_history[guild_id]
-            if guild_id in self.bot.music_queue.text_channels:
-                del self.bot.music_queue.text_channels[guild_id]
-            if guild_id in self.bot.music_queue.recommendation_enabled:
-                del self.bot.music_queue.recommendation_enabled[guild_id]
-            if guild_id in self.bot.music_queue.recommendation_history:
-                del self.bot.music_queue.recommendation_history[guild_id]
-    
-    async def on_voice_state_update(self, member, before, after):
-        """Handle voice state changes."""
-        # Auto-disconnect if the bot is left alone in a voice channel
-        if member.id != self.bot.user.id:  # Not the bot's state changing
-            if before.channel is not None and self.bot.user in before.channel.members:
-                # Check if the bot is now alone in the voice channel
-                if len([m for m in before.channel.members if not m.bot]) == 0:
-                    # Find the voice client for this guild
-                    voice_client = member.guild.voice_client
-                    if voice_client and voice_client.is_connected():
-                        # Check if there's an active player
-                        is_playing = hasattr(voice_client, 'current') and voice_client.current is not None
-                        
-                        # Disconnect after a short delay to allow for quick reconnects
-                        if not is_playing:
-                            await voice_client.disconnect()
+            
+            query = f"{author} music"
+            try:
+                results = await player.fetch_tracks(query, search_type=mafic.SearchType.YOUTUBE)
+                if results:
+                    for track in results:
+                        track_id = (track.title, track.author)
+                        # Check if the track is not in recommendation history, not in added_tracks, and not in the current queue
+                        if (track_id not in bot.recommendation_history[guild_id] and
+                            track_id not in added_tracks and
+                            not any(t.title == track.title and t.author == track.author for t in bot.music_queues[guild_id])):
                             
-                            # Send a notification if possible
-                            guild_id = member.guild.id
-                            if hasattr(self.bot, 'music_queue') and guild_id in self.bot.music_queue.text_channels:
-                                text_channel = self.bot.music_queue.text_channels[guild_id]
-                                await text_channel.send("Disconnected from voice channel because I was left alone.")
+                            bot.music_queues[guild_id].append(track)
+                            added_tracks.add(track_id)
+                            bot.recommendation_history[guild_id].append(track_id)
+                            recommended_tracks += 1
+                            if guild_id in bot.text_channels:
+                                embed = nextcord.Embed(title="Recommended Track Added", color=nextcord.Color.green())
+                                embed.add_field(name="Title", value=track.title, inline=False)
+                                embed.add_field(name="Author", value=track.author, inline=False)
+                                await bot.text_channels[guild_id].send(embed=embed)
+                            break  # Move to the next author after adding one track
+            except Exception as e:
+                logging.error(f"Error fetching recommendation for {author}: {e}")
+
+def manage_recommendation_history(bot, guild_id: int):
+    """Manage the recommendation history for a guild."""
+    if guild_id in bot.recommendation_history:
+        while len(bot.recommendation_history[guild_id]) > bot.max_recommendation_history:
+            bot.recommendation_history[guild_id].popleft()

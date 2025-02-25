@@ -1,79 +1,116 @@
 import nextcord
 from nextcord.ext import commands
 import mafic
-from utils.formatters import create_now_playing_embed
+from utils import format_duration
+from collections import Counter
 import random
+import config
 
-class RecommendationCog(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+from .cog_base import CogBase
+
+class Recommendations(CogBase):
+    """Music recommendation commands."""
     
-    @nextcord.slash_command(description="Toggle automatic song recommendations", dm_permission=False)
-    async def recommend(self, inter: nextcord.Interaction):
-        """Toggle automatic song recommendations."""
+    @nextcord.slash_command(description="Get song recommendations based on your listening history", dm_permission=False, guild_ids=[config.DISCORD_GUILD])
+    async def get_recommendations(self, inter: nextcord.Interaction, count: int = 5):
+        """Get song recommendations based on your listening history."""
         guild_id = inter.guild_id
-        new_status = self.bot.music_queue.toggle_recommendations(guild_id)
-        status = "enabled" if new_status else "disabled"
         
-        embed = nextcord.Embed(title="Recommendation Settings", color=nextcord.Color.blue())
-        embed.add_field(name="Status", value=f"Automatic song recommendations are now {status}.", inline=False)
+        if guild_id not in self.bot.play_history or not self.bot.play_history[guild_id]:
+            return await inter.response.send_message("You don't have any listening history yet. Play some songs first!")
         
-        await inter.send(embed=embed)
-    
-    @mafic.listen(mafic.TrackEndEvent)
-    async def on_track_end_for_recommendations(self, event: mafic.TrackEndEvent):
-        """Check for recommendations when a track ends."""
-        player = event.player
-        guild_id = player.guild.id
-        
-        # Check the queue size to see if we need to add recommendations
-        queue_items = await self.bot.music_queue.get_queue_items(guild_id)
-        if (self.bot.music_queue.get_recommendation_status(guild_id) and 
-            len(queue_items) <= 1):
-            await self.check_and_recommend(player, guild_id)
-    
-    async def check_and_recommend(self, player: mafic.Player, guild_id: int):
-        """Add recommended tracks to the queue based on play history."""
-        # Get recommended authors based on play history
-        recommended_authors = await self.bot.music_queue.get_recommendations(guild_id, limit=10)
-        if not recommended_authors:
-            return
-        
-        recommended_tracks = 0
-        added_tracks = set()  # To keep track of added tracks and avoid duplicates
-        
-        for author in recommended_authors:
-            if recommended_tracks >= 5:  # Limit to 5 recommendations at a time
-                break
+        if not inter.guild.voice_client or not isinstance(inter.guild.voice_client, mafic.Player):
+            if not inter.user.voice:
+                return await inter.response.send_message("You need to be in a voice channel to get recommendations!")
             
+            try:
+                player = await inter.user.voice.channel.connect(cls=mafic.Player)
+            except Exception as e:
+                return await inter.response.send_message(f"Failed to connect to voice channel: {str(e)}")
+        else:
+            player = inter.guild.voice_client
+        
+        await inter.response.defer()
+        
+        # Get the most common authors from play history
+        author_counts = Counter(self.bot.play_history[guild_id])
+        common_authors = [author for author, _ in author_counts.most_common()]
+        
+        # Randomly select authors (or all if less than count)
+        num_authors = min(count, len(common_authors))
+        selected_authors = random.sample(common_authors, num_authors)
+        
+        recommended_tracks = []
+        for author in selected_authors:
+            if len(recommended_tracks) >= count:
+                break
+                
             query = f"{author} music"
             try:
                 results = await player.fetch_tracks(query, search_type=mafic.SearchType.YOUTUBE)
                 if results:
+                    # Find a track that's not already in recommended_tracks
                     for track in results:
                         track_id = (track.title, track.author)
-                        # Check if the track is not in recommendation history and not in added_tracks
-                        if (not self.bot.music_queue.is_track_in_history(guild_id, track) and
-                            track_id not in added_tracks):
-                            
-                            # Add to queue
-                            await self.bot.music_queue.add_track(guild_id, track)
-                            
-                            # Track that we've added this
-                            added_tracks.add(track_id)
-                            self.bot.music_queue.add_to_recommendation_history(guild_id, track)
-                            recommended_tracks += 1
-                            
-                            # Send a message
-                            text_channel = self.bot.music_queue.text_channels.get(guild_id)
-                            if text_channel:
-                                embed = nextcord.Embed(title="Recommended Track Added", color=nextcord.Color.green())
-                                embed.add_field(name="Title", value=track.title, inline=False)
-                                embed.add_field(name="Author", value=track.author, inline=False)
-                                await text_channel.send(embed=embed)
-                            break  # Move to the next author after adding one track
+                        if not any(r.title == track.title and r.author == track.author for r in recommended_tracks):
+                            recommended_tracks.append(track)
+                            break
             except Exception as e:
-                self.bot.logger.error(f"Error fetching recommendation for {author}: {e}")
+                continue
+        
+        if not recommended_tracks:
+            if not inter.guild.voice_client or player.guild.id != guild_id:
+                await player.disconnect()
+            return await inter.followup.send("Couldn't find any recommendations for you. Try playing more music!")
+        
+        # Create recommendation options
+        options = [
+            nextcord.SelectOption(
+                label=f"{i+1}. {track.title[:50]}",
+                description=f"By {track.author[:50]}",
+                value=str(i)
+            ) for i, track in enumerate(recommended_tracks)
+        ]
+        
+        select = nextcord.ui.Select(
+            placeholder="Choose a track to add to queue...",
+            options=options
+        )
+        
+        async def select_callback(interaction: nextcord.Interaction):
+            selected_index = int(select.values[0])
+            selected_track = recommended_tracks[selected_index]
+            
+            if guild_id not in self.bot.music_queues:
+                self.bot.music_queues[guild_id] = []
+                
+            self.bot.music_queues[guild_id].append(selected_track)
+            
+            embed = nextcord.Embed(title="Recommendation Added", color=nextcord.Color.green())
+            embed.add_field(name="Title", value=selected_track.title, inline=False)
+            embed.add_field(name="Author", value=selected_track.author, inline=False)
+            
+            await interaction.response.send_message(embed=embed)
+            
+            if guild_id not in self.bot.current_song:
+                from bot.events import play_next
+                await play_next(self.bot, player)
+        
+        select.callback = select_callback
+        view = nextcord.ui.View(timeout=60)
+        view.add_item(select)
+        
+        embed = nextcord.Embed(title="Song Recommendations", color=nextcord.Color.blue())
+        embed.add_field(name="Based On", value="Your listening history", inline=False)
+        embed.add_field(name="Instructions", value="Select a track to add to your queue:", inline=False)
+        
+        await inter.followup.send(embed=embed, view=view)
+        
+        async def on_timeout():
+            if not player.current and player.connected:
+                await player.disconnect()
+        
+        view.on_timeout = on_timeout
 
-async def setup(bot):
-    await bot.add_cog(RecommendationCog(bot))
+def setup(bot):
+    bot.add_cog(Recommendations(bot))

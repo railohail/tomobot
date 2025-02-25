@@ -2,66 +2,53 @@ import nextcord
 from nextcord.ext import commands
 import mafic
 import logging
-from characterai import aiocai
-from utils.music_queue import MusicQueue
-from .events import EventHandlers
+from collections import deque, Counter
+import random
+
+from utils import MusicQueue, MusicLock
 import config
 
 class MusicBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
-        # Set up logging
-        self.logger = logging.getLogger('music_bot')
-        
-        # Set up music system
+
+        # Set up music client
         self.pool = mafic.NodePool(self)
         self.loop.create_task(self.add_nodes())
-        self.music_queue = MusicQueue()
         
-        # Set up character AI
-        self.char_ai_client = aiocai.Client(config.AI_TOKEN)
-        self.char_ai_chat = None
-        self.char_ai_chat_id = None
-        self.me = None
+        # Music state tracking
+        self.music_queues = {}
+        self.text_channels = {}  # Store text channels for each guild
+        self.play_locks = {}
+        self.current_song = {}
+        self.play_history = {}
         
-        # Set up event handlers
-        self.event_handlers = EventHandlers(self)
-    
+        # Recommendation system
+        self.recommendation_enabled = {}
+        self.recommendation_history = {}
+        self.max_recommendation_history = config.MAX_RECOMMENDATION_HISTORY
+        
+        # Replay mode
+        self.replay_mode = {}  # Store replay mode state for each guild
+
     async def add_nodes(self):
-        """Connect to Lavalink nodes."""
-        try:
-            await self.pool.create_node(
-                host=config.LAVALINK_HOST,
-                port=config.LAVALINK_PORT,
-                label="MAIN",
-                password=config.LAVALINK_PASSWORD,
-            )
-            self.logger.info(f"Connected to Lavalink node at {config.LAVALINK_HOST}:{config.LAVALINK_PORT}")
-        except Exception as e:
-            self.logger.error(f"Failed to connect to Lavalink node: {e}")
-    
-    async def setup_hook(self):
-        """Additional setup after the bot is ready."""
-        self.logger.info("Loading extensions...")
+        """Add Lavalink nodes to the pool."""
+        await self.pool.create_node(
+            host=config.LAVALINK_HOST,
+            port=config.LAVALINK_PORT,
+            label=config.LAVALINK_LABEL,
+            password=config.LAVALINK_PASSWORD,
+        )
+
+    async def on_ready(self):
+        """Called when the bot is ready."""
+        logging.info(f'We have logged in as {self.user}')
         
-        # Load cogs
-        await self.load_extension("cogs.music")
-        await self.load_extension("cogs.recommendations")
-        await self.load_extension("cogs.character_ai")
-        
-        self.logger.info("All extensions loaded")
-        
-    async def init_character_ai(self):
-        """Initialize the Character AI chat."""
-        try:
-            self.me = await self.char_ai_client.get_me()
+    async def on_message(self, message):
+        """Handle incoming messages."""
+        # Skip messages from bots to prevent loops
+        if message.author.bot:
+            return
             
-            # Initialize the single chat
-            async with await self.char_ai_client.connect() as chat:
-                new, answer = await chat.new_chat(config.CHAR_ID, self.me.id)
-                self.char_ai_chat = chat
-                self.char_ai_chat_id = new.chat_id
-            self.logger.info("Character AI chat initialized")
-        except Exception as e:
-            self.logger.error(f"Failed to initialize Character AI: {e}")
+        # Process commands in messages if they exist
+        await self.process_commands(message)
