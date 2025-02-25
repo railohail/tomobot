@@ -12,7 +12,7 @@ A feature-rich Discord bot that plays music
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.10.15(or newer)
 - Lavalink server (for music playback)
 - Character AI API access (for chatbot functionality)
 - Discord Bot Token
