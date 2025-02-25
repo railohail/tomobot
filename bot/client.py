@@ -5,7 +5,7 @@ import logging
 from collections import deque, Counter
 import random
 
-from utils import MusicQueue, MusicLock
+from utils import MusicQueue, MusicLock,LibraryManager
 import config
 
 class MusicBot(commands.Bot):
@@ -30,6 +30,8 @@ class MusicBot(commands.Bot):
         
         # Replay mode
         self.replay_mode = {}  # Store replay mode state for each guild
+        # Library manager
+        self.library_manager = LibraryManager()
 
     async def add_nodes(self):
         """Add Lavalink nodes to the pool."""

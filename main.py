@@ -31,6 +31,7 @@ def main():
     # Load cogs - no CharacterAI
     bot.load_extension("cogs.music")
     bot.load_extension("cogs.recommendations")
+    bot.load_extension("cogs.library") 
     
     # Start bot
     bot.run(os.getenv("DISCORD_BOT_TOKEN"))

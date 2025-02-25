@@ -103,3 +103,341 @@
 2025-02-25 20:31:23,157 - nextcord.client - INFO - Cleaning up after 2 tasks.
 2025-02-25 20:31:23,160 - nextcord.client - INFO - All tasks finished cancelling.
 2025-02-25 20:31:23,160 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 20:54:46,219 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 20:54:46,220 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 20:54:46,220 - nextcord.client - INFO - logging in using static token
+2025-02-25 20:54:46,984 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 20:54:47,272 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-4r4m",{"micros":73921,"calls":["id_created",{"micros":666,"calls":[]},"session_lookup_time",{"micros":320,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-1-92",{"micros":71679,"calls":["start_session",{"micros":52208,"calls":["discord-api-rpc-6fd4f5447d-46dbm",{"micros":46889,"calls":["get_user",{"micros":4659},"get_guilds",{"micros":3523},"send_scheduled_deletion_message",{"micros":5},"guild_join_requests",{"micros":0},"authorized_ip_coro",{"micros":7},"pending_payments",{"micros":305}]}]},"starting_guild_connect",{"micros":43,"calls":[]},"presence_started",{"micros":8677,"calls":[]},"guilds_started",{"micros":145,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":3,"calls":[]},"presence_connect",{"micros":10565,"calls":[]},"connect_finished",{"micros":10571,"calls":[]},"build_ready",{"micros":29,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 361d5417f8ec095d83a328148307fb2e). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 20:54:47,667 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_create', 1, 870640446005735434)
+2025-02-25 20:54:47,973 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_delete', 1, 870640446005735434)
+2025-02-25 20:54:48,335 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_list', 1, 870640446005735434)
+2025-02-25 20:54:48,690 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_add', 1, 870640446005735434)
+2025-02-25 20:54:48,996 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_view', 1, 870640446005735434)
+2025-02-25 20:54:49,304 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 20:54:49,322 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 20:54:49,328 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 20:54:49,330 - mafic.node - INFO - Sending resume configuration to lavalink with session ID nddtn2g7rdctn0et.
+2025-02-25 20:54:49,335 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 20:54:49,509 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_remove', 1, 870640446005735434)
+2025-02-25 20:55:08,557 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_load', 1, 870640446005735434)
+2025-02-25 20:59:10,375 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 20:59:10,376 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 20:59:10,378 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 20:59:10,378 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 20:59:10,401 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x104d8d3c0>
+2025-02-25 20:59:11,820 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 20:59:11,820 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 20:59:11,820 - nextcord.client - INFO - logging in using static token
+2025-02-25 20:59:12,676 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 20:59:12,976 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-2z81",{"micros":83088,"calls":["id_created",{"micros":900,"calls":[]},"session_lookup_time",{"micros":5490,"calls":[]},"session_lookup_finished",{"micros":20,"calls":[]},"discord-sessions-prd-1-17",{"micros":75269,"calls":["start_session",{"micros":38665,"calls":["discord-api-rpc-6fd4f5447d-zhbqw",{"micros":32277,"calls":["get_user",{"micros":6110},"get_guilds",{"micros":2904},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":659},"authorized_ip_coro",{"micros":7},"pending_payments",{"micros":365}]}]},"starting_guild_connect",{"micros":40,"calls":[]},"presence_started",{"micros":6839,"calls":[]},"guilds_started",{"micros":143,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":29550,"calls":[]},"connect_finished",{"micros":29556,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 4835119097652cae3a5914a4634c984b). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 20:59:14,995 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 20:59:15,002 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 20:59:15,007 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 20:59:15,008 - mafic.node - INFO - Sending resume configuration to lavalink with session ID xueivr2qrmqoxglq.
+2025-02-25 20:59:15,012 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 20:59:27,831 - root - ERROR - Error decoding library file for guild 870640446005735434
+2025-02-25 21:01:48,494 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:01:48,495 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:01:48,497 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:01:48,497 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:01:48,518 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10294c700>
+2025-02-25 21:01:50,809 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:01:50,809 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:01:50,809 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:01:51,560 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:01:51,875 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-52kz",{"micros":95656,"calls":["id_created",{"micros":798,"calls":[]},"session_lookup_time",{"micros":5408,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-1-101",{"micros":88197,"calls":["start_session",{"micros":38845,"calls":["discord-api-rpc-6fd4f5447d-qntsm",{"micros":33575,"calls":["get_user",{"micros":5549},"get_guilds",{"micros":3571},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":673},"authorized_ip_coro",{"micros":9},"pending_payments",{"micros":406}]}]},"starting_guild_connect",{"micros":44,"calls":[]},"presence_started",{"micros":15750,"calls":[]},"guilds_started",{"micros":133,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":33394,"calls":[]},"connect_finished",{"micros":33400,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: 9726c54425d371ae88e9fb59d08340c1). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 21:01:52,316 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_fix', 1, 870640446005735434)
+2025-02-25 21:01:53,887 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:01:53,893 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:01:53,897 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:01:53,898 - mafic.node - INFO - Sending resume configuration to lavalink with session ID 40017mzr6gouku9f.
+2025-02-25 21:01:53,905 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:04:57,012 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:04:57,012 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:04:57,014 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:04:57,014 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:04:57,035 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1030ec940>
+2025-02-25 21:04:58,331 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:04:58,331 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:04:58,331 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:04:59,170 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:04:59,581 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-f8l0",{"micros":201145,"calls":["id_created",{"micros":1512,"calls":[]},"session_lookup_time",{"micros":7774,"calls":[]},"session_lookup_finished",{"micros":10,"calls":[]},"discord-sessions-prd-1-7",{"micros":190518,"calls":["start_session",{"micros":149164,"calls":["discord-api-rpc-6fd4f5447d-4kzbb",{"micros":143234,"calls":["get_user",{"micros":42618},"get_guilds",{"micros":4901},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":4665},"authorized_ip_coro",{"micros":10},"pending_payments",{"micros":318}]}]},"starting_guild_connect",{"micros":39,"calls":[]},"presence_started",{"micros":8802,"calls":[]},"guilds_started",{"micros":161,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":32298,"calls":[]},"connect_finished",{"micros":32304,"calls":[]},"build_ready",{"micros":42,"calls":[]},"clean_ready",{"micros":3,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 6b87bc0010fdcd3ee657285a45f73cc1). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 21:04:59,979 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_debug', 1, 870640446005735434)
+2025-02-25 21:05:01,597 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:05:01,605 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:05:01,610 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:05:01,611 - mafic.node - INFO - Sending resume configuration to lavalink with session ID 3lf00rkiil9zglsk.
+2025-02-25 21:05:01,616 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:05:19,984 - root - INFO - Adding to library '卓卓', Available libraries: ['卓卓']
+2025-02-25 21:05:19,984 - root - INFO - Library types - Input: <class 'str'>, Available: [<class 'str'>]
+2025-02-25 21:05:19,984 - root - INFO - Using library name: 卓卓
+2025-02-25 21:05:22,094 - root - ERROR - Error adding track to library: 'Playlist' object is not subscriptable
+2025-02-25 21:09:01,279 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:09:01,280 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:09:01,284 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:09:01,285 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:09:03,017 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:09:03,017 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:09:03,017 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:09:03,850 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:09:04,141 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-d-2mtn",{"micros":78409,"calls":["id_created",{"micros":742,"calls":[]},"session_lookup_time",{"micros":240,"calls":[]},"session_lookup_finished",{"micros":26,"calls":[]},"discord-sessions-prd-1-234",{"micros":76317,"calls":["start_session",{"micros":37992,"calls":["discord-api-rpc-6fd4f5447d-zvxcs",{"micros":32194,"calls":["get_user",{"micros":5394},"get_guilds",{"micros":3664},"send_scheduled_deletion_message",{"micros":8},"guild_join_requests",{"micros":894},"authorized_ip_coro",{"micros":11},"pending_payments",{"micros":398}]}]},"starting_guild_connect",{"micros":39,"calls":[]},"presence_started",{"micros":11930,"calls":[]},"guilds_started",{"micros":177,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":26149,"calls":[]},"connect_finished",{"micros":26153,"calls":[]},"build_ready",{"micros":21,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: afab1a4c1b21e1736f46ca13cfdd981d). Resume URL specified as wss://gateway-us-east1-d.discord.gg
+2025-02-25 21:09:06,156 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:09:06,164 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:09:06,171 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:09:06,172 - mafic.node - INFO - Sending resume configuration to lavalink with session ID 1dbr2q8m7inr5xgw.
+2025-02-25 21:09:06,176 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:09:14,505 - root - INFO - Started playing: 【FULL】「Ao no Sumika (Where Our Blue Is) by Tatsuya Kitani」- Jujutsu Kaisen Season 2 Opening『ENG Sub』
+2025-02-25 21:09:36,959 - root - INFO - Adding to library '卓卓', Available libraries: ['卓卓']
+2025-02-25 21:09:36,959 - root - INFO - Library types - Input: <class 'str'>, Available: [<class 'str'>]
+2025-02-25 21:09:36,959 - root - INFO - Using library name: 卓卓
+2025-02-25 21:09:38,875 - root - ERROR - Error adding track to library: 'Track' object has no attribute 'is_stream'
+2025-02-25 21:21:41,536 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:21:41,537 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:21:41,540 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:21:41,540 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:21:45,766 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:21:45,766 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:21:45,766 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:21:46,638 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:21:46,961 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-f9cj",{"micros":109986,"calls":["id_created",{"micros":1020,"calls":[]},"session_lookup_time",{"micros":290,"calls":[]},"session_lookup_finished",{"micros":11,"calls":[]},"discord-sessions-prd-1-202",{"micros":108363,"calls":["start_session",{"micros":30530,"calls":["discord-api-rpc-6fd4f5447d-hhjlr",{"micros":26186,"calls":["get_user",{"micros":4291},"get_guilds",{"micros":3072},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":749},"authorized_ip_coro",{"micros":6},"pending_payments",{"micros":276}]}]},"starting_guild_connect",{"micros":40,"calls":[]},"presence_started",{"micros":33344,"calls":[]},"guilds_started",{"micros":221,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":44194,"calls":[]},"connect_finished",{"micros":44200,"calls":[]},"build_ready",{"micros":23,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 157b9633cd63607f3a4dd2f8b572b74a). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 21:21:47,436 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_add', 1, 870640446005735434)
+2025-02-25 21:21:47,766 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_remove_select', 1, 870640446005735434)
+2025-02-25 21:21:48,974 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:21:48,981 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:21:48,985 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:21:48,986 - mafic.node - INFO - Sending resume configuration to lavalink with session ID bm87ll9f9uqshez9.
+2025-02-25 21:21:48,990 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:22:17,157 - root - INFO - Adding to library '卓卓', Available libraries: ['卓卓']
+2025-02-25 21:22:17,158 - root - INFO - Using library name: 卓卓
+2025-02-25 21:22:49,100 - root - INFO - Adding to library '卓卓', Available libraries: ['卓卓']
+2025-02-25 21:22:49,101 - root - INFO - Using library name: 卓卓
+2025-02-25 21:24:13,330 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:24:13,331 - nextcord.client - INFO - Cleaning up after 3 tasks.
+2025-02-25 21:24:13,334 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:24:13,334 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:32:55,472 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:32:55,472 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:32:55,472 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:32:57,170 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:32:57,484 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-5hw6",{"micros":97906,"calls":["id_created",{"micros":1041,"calls":[]},"session_lookup_time",{"micros":6091,"calls":[]},"session_lookup_finished",{"micros":19,"calls":[]},"discord-sessions-prd-1-37",{"micros":89957,"calls":["start_session",{"micros":74604,"calls":["discord-api-rpc-6fd4f5447d-rxqms",{"micros":68689,"calls":["get_user",{"micros":37732},"get_guilds",{"micros":3556},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":10},"pending_payments",{"micros":470}]}]},"starting_guild_connect",{"micros":50,"calls":[]},"presence_started",{"micros":1470,"calls":[]},"guilds_started",{"micros":149,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":13656,"calls":[]},"connect_finished",{"micros":13662,"calls":[]},"build_ready",{"micros":15,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":4,"calls":[]}]}]}] (Session ID: add9e9624c9bb3cb03772ad28ae480d4). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 21:32:59,504 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:32:59,512 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:32:59,516 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:32:59,518 - mafic.node - INFO - Sending resume configuration to lavalink with session ID h26cer7fg5fnix3u.
+2025-02-25 21:32:59,524 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:33:25,021 - root - ERROR - Error decoding library file for guild 870640446005735434: Expecting value: line 1 column 1 (char 0)
+2025-02-25 21:33:25,023 - root - INFO - Created backup of corrupted library file: libraries/library_870640446005735434.json.bak
+2025-02-25 21:33:25,024 - root - INFO - Created new empty library file for guild 870640446005735434
+2025-02-25 21:34:25,235 - root - INFO - Adding to library 'test', Available libraries: ['test']
+2025-02-25 21:34:25,236 - root - INFO - Using library name: test
+2025-02-25 21:37:19,911 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:37:19,912 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:37:19,914 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:37:19,915 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:37:19,941 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x104daea70>
+2025-02-25 21:37:22,094 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:37:22,094 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:37:22,094 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:37:22,902 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:37:23,200 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-3zd6",{"micros":73654,"calls":["id_created",{"micros":701,"calls":[]},"session_lookup_time",{"micros":5762,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-1-55",{"micros":66051,"calls":["start_session",{"micros":31359,"calls":["discord-api-rpc-6fd4f5447d-6ksmr",{"micros":26432,"calls":["get_user",{"micros":4958},"get_guilds",{"micros":3376},"send_scheduled_deletion_message",{"micros":5},"guild_join_requests",{"micros":0},"authorized_ip_coro",{"micros":6},"pending_payments",{"micros":387}]}]},"starting_guild_connect",{"micros":45,"calls":[]},"presence_started",{"micros":246,"calls":[]},"guilds_started",{"micros":117,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":34250,"calls":[]},"connect_finished",{"micros":34257,"calls":[]},"build_ready",{"micros":23,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: c29fe96bd31d6cd853c3f8ccb67be89a). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 21:37:25,222 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:37:25,228 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:37:25,232 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:37:25,234 - mafic.node - INFO - Sending resume configuration to lavalink with session ID fa49i19nbm60sd6r.
+2025-02-25 21:37:25,238 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:37:54,748 - root - INFO - Adding to library 'test', Available libraries: ['test']
+2025-02-25 21:37:54,749 - root - INFO - Using library name: test
+2025-02-25 21:38:01,190 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:38:01,190 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:38:01,205 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:38:01,205 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:38:01,220 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1046deec0>
+2025-02-25 21:41:10,687 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:41:10,687 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:41:10,687 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:41:11,566 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:41:11,956 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-c6pb",{"micros":174125,"calls":["id_created",{"micros":659,"calls":[]},"session_lookup_time",{"micros":5755,"calls":[]},"session_lookup_finished",{"micros":11,"calls":[]},"discord-sessions-prd-1-134",{"micros":165407,"calls":["start_session",{"micros":104443,"calls":["discord-api-rpc-6fd4f5447d-2d8lc",{"micros":82437,"calls":["get_user",{"micros":18112},"get_guilds",{"micros":15169},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":8},"pending_payments",{"micros":14223}]}]},"starting_guild_connect",{"micros":46,"calls":[]},"presence_started",{"micros":41162,"calls":[]},"guilds_started",{"micros":140,"calls":[]},"lobbies_started",{"micros":4,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":19582,"calls":[]},"connect_finished",{"micros":19587,"calls":[]},"build_ready",{"micros":21,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: ab593707865c44b4fbc1770c77ad277f). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 21:41:13,981 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:41:13,987 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:41:13,991 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:41:13,993 - mafic.node - INFO - Sending resume configuration to lavalink with session ID xaya3e9exht01zjf.
+2025-02-25 21:41:13,997 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:41:33,890 - root - INFO - Adding to library 'test', Available libraries: ['test']
+2025-02-25 21:41:33,890 - root - INFO - Using library name: test
+2025-02-25 21:41:34,333 - root - ERROR - Error accessing node: 'list' object has no attribute 'values'
+2025-02-25 21:44:08,200 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:44:08,200 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:44:08,202 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:44:08,202 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:44:08,220 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x103186a70>
+2025-02-25 21:48:34,218 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:48:34,218 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:48:34,218 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:48:35,031 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:48:35,392 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-d-6mwl",{"micros":148617,"calls":["id_created",{"micros":580,"calls":[]},"session_lookup_time",{"micros":13825,"calls":[]},"session_lookup_finished",{"micros":37,"calls":[]},"discord-sessions-prd-1-27",{"micros":133853,"calls":["start_session",{"micros":66932,"calls":["discord-api-rpc-6fd4f5447d-z2msw",{"micros":58245,"calls":["get_user",{"micros":5130},"get_guilds",{"micros":5764},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":426},"authorized_ip_coro",{"micros":4},"pending_payments",{"micros":3445}]}]},"starting_guild_connect",{"micros":31,"calls":[]},"presence_started",{"micros":14359,"calls":[]},"guilds_started",{"micros":147,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":52358,"calls":[]},"connect_finished",{"micros":52364,"calls":[]},"build_ready",{"micros":15,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: fc26009b15b0dbe12588440cdfc1fcb3). Resume URL specified as wss://gateway-us-east1-d.discord.gg
+2025-02-25 21:48:36,553 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_remove_select', 1, 870640446005735434)
+2025-02-25 21:48:36,919 - nextcord.state - INFO - nextcord.ConnectionState: Registering command with signature ('library_save_queue', 1, 870640446005735434)
+2025-02-25 21:48:37,412 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:48:37,418 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:48:37,423 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:48:37,424 - mafic.node - INFO - Sending resume configuration to lavalink with session ID mb4mra5ts9hv9vaa.
+2025-02-25 21:48:37,427 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:49:41,553 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:49:41,553 - nextcord.client - INFO - Cleaning up after 3 tasks.
+2025-02-25 21:49:41,556 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:49:41,556 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:50:12,824 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:50:12,824 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:50:12,824 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:50:13,583 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:50:13,851 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-x3qx",{"micros":52029,"calls":["id_created",{"micros":1016,"calls":[]},"session_lookup_time",{"micros":5332,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-1-86",{"micros":45340,"calls":["start_session",{"micros":33176,"calls":["discord-api-rpc-6fd4f5447d-85hpl",{"micros":28423,"calls":["get_user",{"micros":5550},"get_guilds",{"micros":3286},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":9},"pending_payments",{"micros":344}]}]},"starting_guild_connect",{"micros":40,"calls":[]},"presence_started",{"micros":7000,"calls":[]},"guilds_started",{"micros":139,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":4957,"calls":[]},"connect_finished",{"micros":4962,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: 789287e27697eebc1d35728bf51d663c). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 21:50:15,898 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:50:15,904 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:50:15,909 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:50:15,910 - mafic.node - INFO - Sending resume configuration to lavalink with session ID we8joakw95sxy54g.
+2025-02-25 21:50:15,914 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:54:24,720 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:54:24,720 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:54:24,723 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:54:24,723 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:54:27,231 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 21:54:27,231 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 21:54:27,231 - nextcord.client - INFO - logging in using static token
+2025-02-25 21:54:28,052 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 21:54:28,305 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-x62v",{"micros":44789,"calls":["id_created",{"micros":736,"calls":[]},"session_lookup_time",{"micros":1306,"calls":[]},"session_lookup_finished",{"micros":16,"calls":[]},"discord-sessions-prd-1-65",{"micros":40897,"calls":["start_session",{"micros":37181,"calls":["discord-api-rpc-6fd4f5447d-lfcs7",{"micros":32568,"calls":["get_user",{"micros":5346},"get_guilds",{"micros":2780},"send_scheduled_deletion_message",{"micros":5},"guild_join_requests",{"micros":0},"authorized_ip_coro",{"micros":6},"pending_payments",{"micros":395}]}]},"starting_guild_connect",{"micros":36,"calls":[]},"presence_started",{"micros":236,"calls":[]},"guilds_started",{"micros":122,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":3293,"calls":[]},"connect_finished",{"micros":3298,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: d7b8dfd0aa30f38be78f3ce4fdd47211). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 21:54:30,491 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 21:54:30,496 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 21:54:30,501 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 21:54:30,502 - mafic.node - INFO - Sending resume configuration to lavalink with session ID uxe8t88clps1qgbk.
+2025-02-25 21:54:30,506 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 21:54:47,407 - root - ERROR - Error decoding library file for guild 870640446005735434: Expecting value: line 1 column 1 (char 0)
+2025-02-25 21:54:47,408 - root - INFO - Created backup of corrupted library file: libraries/library_870640446005735434.json.bak
+2025-02-25 21:54:47,409 - root - INFO - Created new empty library file for guild 870640446005735434
+2025-02-25 21:55:04,926 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 21:55:04,926 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 21:55:04,929 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 21:55:04,929 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 21:55:04,952 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x102752b00>
+2025-02-25 22:05:00,143 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:05:00,143 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:05:00,143 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:05:00,897 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:05:01,195 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-hm8q",{"micros":80155,"calls":["id_created",{"micros":684,"calls":[]},"session_lookup_time",{"micros":755,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-1-140",{"micros":75249,"calls":["start_session",{"micros":38738,"calls":["discord-api-rpc-6fd4f5447d-ng4ns",{"micros":32917,"calls":["get_user",{"micros":4738},"get_guilds",{"micros":8537},"send_scheduled_deletion_message",{"micros":8},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":8},"pending_payments",{"micros":354}]}]},"starting_guild_connect",{"micros":36,"calls":[]},"presence_started",{"micros":22051,"calls":[]},"guilds_started",{"micros":134,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":14255,"calls":[]},"connect_finished",{"micros":14260,"calls":[]},"build_ready",{"micros":24,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: 058c2cfd65db16c5f4f4a487ae8b598f). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 22:05:03,208 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:05:03,214 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:05:03,218 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:05:03,220 - mafic.node - INFO - Sending resume configuration to lavalink with session ID 6gjqy4zj3m41vmup.
+2025-02-25 22:05:03,224 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:09:51,107 - root - ERROR - Error accessing Lavalink node: 'list' object has no attribute 'values'
+2025-02-25 22:24:51,521 - nextcord.client - INFO - Got a request to RESUME the websocket.
+2025-02-25 22:24:51,921 - nextcord.gateway - INFO - Shard ID None has sent the RESUME payload.
+2025-02-25 22:24:52,136 - nextcord.gateway - INFO - Shard ID None has successfully RESUMED session 058c2cfd65db16c5f4f4a487ae8b598f under trace ["gateway-prd-us-east1-c-b7dw",{"micros":4384,"calls":["id_created",{"micros":0,"calls":[]},"session_lookup_time",{"micros":4040,"calls":[]},"session_lookup_finished",{"micros":17,"calls":[]},"discord-sessions-prd-1-140",{"micros":25}]}].
+2025-02-25 22:43:45,263 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:43:45,263 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:43:45,265 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:43:45,266 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 22:43:45,292 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x102ebaf50>
+2025-02-25 22:43:47,731 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:43:47,731 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:43:47,731 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:43:48,686 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:43:48,995 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-6z9b",{"micros":89668,"calls":["id_created",{"micros":1207,"calls":[]},"session_lookup_time",{"micros":6012,"calls":[]},"session_lookup_finished",{"micros":18,"calls":[]},"discord-sessions-prd-1-202",{"micros":81520,"calls":["start_session",{"micros":36799,"calls":["discord-api-rpc-6fd4f5447d-sv4kp",{"micros":31740,"calls":["get_user",{"micros":4340},"get_guilds",{"micros":4382},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":7},"pending_payments",{"micros":355}]}]},"starting_guild_connect",{"micros":40,"calls":[]},"presence_started",{"micros":9013,"calls":[]},"guilds_started",{"micros":151,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":35493,"calls":[]},"connect_finished",{"micros":35497,"calls":[]},"build_ready",{"micros":17,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: 57df3525e7da372f7ae14cd311961a28). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 22:43:51,022 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:43:51,038 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:43:51,045 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:43:51,047 - mafic.node - INFO - Sending resume configuration to lavalink with session ID 4xyxdi2at5shqbzy.
+2025-02-25 22:43:51,052 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:44:04,147 - root - ERROR - Error adding to library: 'list' object has no attribute 'values'
+2025-02-25 22:46:31,745 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:46:31,745 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:46:31,747 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:46:31,747 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 22:46:31,769 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1029e2b00>
+2025-02-25 22:46:35,278 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:46:35,278 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:46:35,278 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:46:36,213 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:46:36,550 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-d-x0mw",{"micros":114267,"calls":["id_created",{"micros":1185,"calls":[]},"session_lookup_time",{"micros":4315,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-1-81",{"micros":107727,"calls":["start_session",{"micros":36527,"calls":["discord-api-rpc-6fd4f5447d-46fhl",{"micros":31503,"calls":["get_user",{"micros":5087},"get_guilds",{"micros":5509},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":5},"pending_payments",{"micros":344}]}]},"starting_guild_connect",{"micros":46,"calls":[]},"presence_started",{"micros":14134,"calls":[]},"guilds_started",{"micros":115,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":56875,"calls":[]},"connect_finished",{"micros":56881,"calls":[]},"build_ready",{"micros":19,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: e7b8ebebc710597b7b75af288209be46). Resume URL specified as wss://gateway-us-east1-d.discord.gg
+2025-02-25 22:46:38,562 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:46:38,569 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:46:38,573 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:46:38,574 - mafic.node - INFO - Sending resume configuration to lavalink with session ID nkqd1mnqo0h99p7c.
+2025-02-25 22:46:38,578 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:46:42,584 - root - ERROR - Error accessing node pool: 'list' object has no attribute 'items'
+2025-02-25 22:48:23,091 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:48:23,091 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:48:23,094 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:48:23,094 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 22:48:23,116 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x106c27190>
+2025-02-25 22:48:24,425 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:48:24,425 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:48:24,425 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:48:25,356 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:48:25,729 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-b-w2tv",{"micros":156800,"calls":["id_created",{"micros":976,"calls":[]},"session_lookup_time",{"micros":364,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-1-49",{"micros":155126,"calls":["start_session",{"micros":90916,"calls":["discord-api-rpc-6fd4f5447d-v72zq",{"micros":73208,"calls":["get_user",{"micros":5005},"get_guilds",{"micros":17220},"send_scheduled_deletion_message",{"micros":6},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":5},"pending_payments",{"micros":902}]}]},"starting_guild_connect",{"micros":44,"calls":[]},"presence_started",{"micros":19381,"calls":[]},"guilds_started",{"micros":117,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":44637,"calls":[]},"connect_finished",{"micros":44642,"calls":[]},"build_ready",{"micros":21,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}] (Session ID: 4a2c1210e12c7daeaf2d6e2230c0e8bf). Resume URL specified as wss://gateway-us-east1-b.discord.gg
+2025-02-25 22:48:27,741 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:48:27,748 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:48:27,752 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:48:27,754 - mafic.node - INFO - Sending resume configuration to lavalink with session ID oihs9ayun0j92hg9.
+2025-02-25 22:48:27,758 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:49:02,420 - root - INFO - Attempting to load 3 tracks from library 'test'
+2025-02-25 22:49:02,420 - root - INFO - Searching with identifier: LKMw0hBDBUw
+2025-02-25 22:49:02,603 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=LKMw0hBDBUw
+2025-02-25 22:49:02,711 - root - INFO - Searching with identifier: P-LdR0WL5Zo
+2025-02-25 22:49:02,902 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=P-LdR0WL5Zo
+2025-02-25 22:49:02,962 - root - INFO - Searching with identifier: ax1IdxAZmTY
+2025-02-25 22:49:03,133 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=ax1IdxAZmTY
+2025-02-25 22:49:03,201 - root - INFO - Started playing: スカートとPUNPEE『ODDTAXI』Official Music Video（TVアニメ「オッドタクシー」オープニングテーマ）
+2025-02-25 22:49:33,984 - root - INFO - Libraries for guild 870640446005735434: ['test']
+2025-02-25 22:50:46,380 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:50:46,380 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:50:46,382 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:50:46,382 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 22:52:42,114 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:52:42,114 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:52:42,114 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:52:43,837 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:52:44,135 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-czj8",{"micros":81047,"calls":["id_created",{"micros":1027,"calls":[]},"session_lookup_time",{"micros":2145,"calls":[]},"session_lookup_finished",{"micros":12,"calls":[]},"discord-sessions-prd-1-215",{"micros":77546,"calls":["start_session",{"micros":39302,"calls":["discord-api-rpc-6fd4f5447d-25pbx",{"micros":33993,"calls":["get_user",{"micros":5527},"get_guilds",{"micros":5247},"send_scheduled_deletion_message",{"micros":7},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":10},"pending_payments",{"micros":419}]}]},"starting_guild_connect",{"micros":45,"calls":[]},"presence_started",{"micros":375,"calls":[]},"guilds_started",{"micros":110,"calls":[]},"lobbies_started",{"micros":2,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":37683,"calls":[]},"connect_finished",{"micros":37688,"calls":[]},"build_ready",{"micros":22,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: e37d6b61b94f0fdf5fc639da925436e3). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 22:52:46,151 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:52:46,157 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:52:46,162 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:52:46,163 - mafic.node - INFO - Sending resume configuration to lavalink with session ID xuhudy0480caa2u3.
+2025-02-25 22:52:46,167 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:53:34,014 - root - ERROR - Error adding to library: Node.fetch_tracks() missing 1 required keyword-only argument: 'search_type'
+2025-02-25 22:54:35,788 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:54:35,789 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:54:35,791 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:54:35,791 - nextcord.client - INFO - Closing the event loop.
+2025-02-25 22:54:35,816 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1030eab00>
+2025-02-25 22:55:53,677 - mafic.pool - INFO - Created node, connecting it...
+2025-02-25 22:55:53,677 - mafic.node - INFO - Waiting for client to be ready...
+2025-02-25 22:55:53,677 - nextcord.client - INFO - logging in using static token
+2025-02-25 22:55:54,442 - nextcord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2025-02-25 22:55:54,863 - nextcord.gateway - INFO - Shard ID None has connected to Gateway: ["gateway-prd-us-east1-c-fdk6",{"micros":205696,"calls":["id_created",{"micros":1159,"calls":[]},"session_lookup_time",{"micros":285,"calls":[]},"session_lookup_finished",{"micros":19,"calls":[]},"discord-sessions-prd-1-218",{"micros":202448,"calls":["start_session",{"micros":179075,"calls":["discord-api-rpc-6fd4f5447d-5psjj",{"micros":132213,"calls":["get_user",{"micros":39862},"get_guilds",{"micros":8855},"send_scheduled_deletion_message",{"micros":5},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":5},"pending_payments",{"micros":2452}]}]},"starting_guild_connect",{"micros":52,"calls":[]},"presence_started",{"micros":16189,"calls":[]},"guilds_started",{"micros":133,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":6970,"calls":[]},"connect_finished",{"micros":6975,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}] (Session ID: a170b0db885c6e14987e3ff89ee1794b). Resume URL specified as wss://gateway-us-east1-c.discord.gg
+2025-02-25 22:55:56,891 - root - INFO - We have logged in as 高松燈#7397
+2025-02-25 22:55:56,898 - mafic.node - INFO - Connecting to lavalink at http://127.0.0.1:2333/v4...
+2025-02-25 22:55:56,903 - mafic.node - INFO - Connected to lavalink.
+2025-02-25 22:55:56,904 - mafic.node - INFO - Sending resume configuration to lavalink with session ID pyhqlqa989auqiv5.
+2025-02-25 22:55:56,908 - mafic.node - INFO - Node MAIN is now available.
+2025-02-25 22:56:16,864 - root - INFO - Attempting to load 3 tracks from library 'test'
+2025-02-25 22:56:16,864 - root - INFO - Searching with identifier: LKMw0hBDBUw
+2025-02-25 22:56:16,868 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=LKMw0hBDBUw
+2025-02-25 22:56:16,930 - root - INFO - Searching with identifier: P-LdR0WL5Zo
+2025-02-25 22:56:16,931 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=P-LdR0WL5Zo
+2025-02-25 22:56:17,006 - root - INFO - Searching with identifier: ax1IdxAZmTY
+2025-02-25 22:56:17,008 - root - INFO - Searching with URI: https://www.youtube.com/watch?v=ax1IdxAZmTY
+2025-02-25 22:56:17,062 - root - INFO - Started playing: スカートとPUNPEE『ODDTAXI』Official Music Video（TVアニメ「オッドタクシー」オープニングテーマ）
+2025-02-25 22:56:24,535 - nextcord.client - INFO - Cleaning up tasks.
+2025-02-25 22:56:24,536 - nextcord.client - INFO - Cleaning up after 2 tasks.
+2025-02-25 22:56:24,538 - nextcord.client - INFO - All tasks finished cancelling.
+2025-02-25 22:56:24,539 - nextcord.client - INFO - Closing the event loop.

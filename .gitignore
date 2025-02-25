@@ -20,7 +20,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
 # Environment variables
 .env
 .env.*
@@ -36,3 +35,6 @@ env/
 .vscode/
 *.swp
 .DS_Store
+
+
+/libraries/
